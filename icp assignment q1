@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int marks[5], x; //array to contain 5 marks and x is counter
+    float total = 0, avrg;
+    char grade, choice;
+    while (1)
+    {
+        printf("Enter 5 marks\n");
+        for (x = 0; x < 5;)
+        {
+            printf("Marks %d=", (x + 1));
+            scanf("%d", &marks[x]);
+            if (marks[x] >= 0 && marks[x] <= 100) //check for invalid input which is above 100 and below 0
+            {
+                x++; //valid marks
+            }
+        }
+        for (x = 0; x < 5; x++) //calculate the total and average
+        {
+            total += marks[x];
+        }
+        avrg = total / 5.0; //calculate the average
+        if (avrg >= 80)  //finding grade
+        {
+            grade = 'A';
+        }
+        else if (avrg >= 60)
+        {
+            grade = 'B';
+        }
+        else if (avrg >= 40)
+        {
+            grade = 'C';
+        }
+        printf("Total Marks=%.2f", total); //print all the results
+        printf("\nAverage Marks=%.2f", avrg);
+        printf("\nGrade=%c", grade);
+        printf("\nTo continue press Y\n");
+        scanf(" %c", &choice);
+        if (choice != 'Y' && choice != 'y')
+        {
+            break; //break to end program
+        }
+        printf("\n");
+    }
+}
