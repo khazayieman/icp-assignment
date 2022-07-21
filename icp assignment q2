@@ -1,0 +1,55 @@
+#include<stdio.h>
+char items[5][10] = {"Beras","Telur","Air Tin","Pisau","Cawan"};   //declare item names
+float price[5] = { 15.80,3.80,1.90,9.99,5.50 }; // declare prices
+float discount[5] = { 5,5,0,7,0 }; // declare discounts
+float pad[5] = { 15.01,3.61,1.90,9.29,5.50 }; //price after discount
+
+
+char start = 'Y'|| 'y';  // continue can be both capital and non capital letters
+char stop = 'N'||'n';   // stop can be both capital and non capital letters
+
+int x, y, z; // counter
+
+void main()
+{
+	while (start == 'Y'||'y')
+	{
+		printf("\tSELAMAT DATANG KE TEKCO MINIMART");
+		printf("\n\t\tITEM LIST\n");
+		printf("Item\t\t\tPrice\tDiscount(in percentage)\n");
+
+		for (x = 0; x < 5; x++)
+		{
+			printf("%d. %s\t\t%.2f\t%.0f%\n", x + 1, items[x], price[x], discount[x]);
+		}
+		printf("\nEnter item number to determine the price after discount or 0 to show all prices after discount:");
+		scanf("%d", &y);
+		printf("\tItem\t\t\tPrice before Discount\tPrice after Discount\n");
+
+		if (y == 0) 
+		{
+			for (z = 0; z < 5; z++) //looping to display items
+			{
+				printf("%d.\t%s\t\t\t%.2f\t\t\t%.2f\n", z, items[z], price[z], pad[z]);
+			}
+		}
+
+		else if (y == 1) // pick and choose which items to be showned
+			printf("%d.\t%s\t\t%.2f\t%.2f\n", 1, items[0], price[0], pad[0]);
+
+		else if (y == 2)
+			printf("%d.\t%s\t\t%.2f\t%.2f\n", 2, items[1], price[1], pad[1]);
+
+		else if (y == 3)
+			printf("%d.\t%s\t\t%.2f\t%.2f\n", 3, items[2], price[2], pad[2]);
+
+		else if (y == 4)
+			printf("%d.\t%s\t\t%.2f\t%.2f\n", 4, items[3], price[3], pad[3]);
+
+		else if (y == 5)
+			printf("%d.\t%s\t\t%.2f\t%.2f\n", 5, items[4], price[4], pad[4]);
+
+		printf("To continue press Y or N to stop\n"); //user input to continue
+		scanf("%s", &start);
+	}
+}
